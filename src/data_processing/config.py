@@ -18,3 +18,6 @@ def make_paths(root: Path) -> Paths:
         processed=data / "processed",
         external=data / "external",
     )
+
+ROOT_DIR = Path(__file__).resolve().parents[2]
+PROJ_PATHS = make_paths(ROOT_DIR)
