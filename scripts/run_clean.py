@@ -23,10 +23,7 @@ def main() -> None:
     p = make_paths(ROOT)
 
     log.info("Loading raw inputs")
-    full_path = p.raw / "orders.csv"
-    log.info(f"Checking for file at: {full_path.resolve()}")
-    orders_raw = read_orders_csv(full_path)
-
+    orders_raw = read_orders_csv(p.raw / "orders.csv")
     users = read_users_csv(p.raw / "users.csv")
     log.info("Rows: orders_raw=%s, users=%s", len(orders_raw), len(users))
 
