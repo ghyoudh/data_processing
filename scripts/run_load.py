@@ -4,7 +4,6 @@ import json
 from datetime import datetime, timezone
 import logging
 
-# Make `src/` importable when running as a script
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.append(str(ROOT/"src"))
 

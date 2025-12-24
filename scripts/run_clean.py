@@ -15,7 +15,8 @@ from data_processing.quality import (
     require_columns,
     assert_non_empty,
 )
-from scripts.run_load import ROOT
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.append(str(ROOT/"src"))
 
 log = logging.getLogger(__name__)
 def main() -> None:
