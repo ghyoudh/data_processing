@@ -52,14 +52,18 @@ def main() -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     joined.to_parquet(out_path, index=False)
     print("wrote:", out_path)
-    # summary stats
+
+    # summary
     summary = (
-    joined.groupby("country", dropna=False)
-          .agg(n=("order_id","size"), revenue=("amount","sum"))
-          .reset_index()
-          .sort_values("revenue", ascending=False)
+        joined.groupby("country", dropna=False)
+              .agg(n=("order_id","size"), revenue=("amount","sum"))
+              .reset_index()
+              .sort_values("revenue", ascending=False)
     )
-    print(summary)
+    summary_path = p.processed.parents[1] / "reports" / "summary.md"
+    summary_path.parent.mkdir(parents=True, exist_ok=True)
+    summary.to_markdown(summary_path, index=False)
+    print("wrote:", summary_path)
 
 if __name__ == "__main__":
     main()
