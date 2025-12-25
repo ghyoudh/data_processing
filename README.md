@@ -13,10 +13,10 @@ Data analytics pipeline for orders data.
 
 ## Quickstart
 ### Create virtualenv and install deps:
-``bash
+```bash
 python -m venv .venv
 .venv/bin/pip install -r requirements.txt
-``
+```
 
 ### Load raw CSVs to parquet
 ``bash
@@ -32,3 +32,12 @@ python scripts/run_clean.py
 ``bash
 python scripts/run_build_analytics.py
 ``
+
+## Notbooks View
+```bash
+cd .\notbooks\
+jupyter lab
+```
+- [eda.ipynb](notbooks/eda.ipynb) : Data Quality & Discovery.
+- [orders_clear.ipynb](notbooks/orders_clean.ipynb) : The Table of The Data Cleansing & Transformation.
+- [orders_load.ipynb](notbooks/orders_load.ipynb) : The Table of The Data Loading.
